@@ -1,6 +1,5 @@
 # trailhead: Solucion ejercicios Trailhead Salesforce
 
-**
 
 ## Create an Apex class that uses the @future annotation to update Account records.
 
@@ -18,7 +17,8 @@ Solución:
     public class AccountProcessor {  
     @future   
     public static void countContacts(Set<id> setId) {
-      List<Account> lstAccount = [select id,Number_of_Contacts__c , (select id from contacts ) from account where id in :setId ];
+      List<Account> lstAccount = [select id,Number_of_Contacts__c , (select id from contacts ) 
+                                  from account where id in :setId ];
       for( Account acc : lstAccount )
       {
           List<Contact> lstCont = acc.contacts ;
